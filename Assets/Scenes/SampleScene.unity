@@ -701,6 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyMover: {fileID: 1106354831}
   _enemyRotator: {fileID: 1106354830}
+  _agroDistance: 5
   _target: {fileID: 2016486674}
 --- !u!143 &1106354833
 CharacterController:
