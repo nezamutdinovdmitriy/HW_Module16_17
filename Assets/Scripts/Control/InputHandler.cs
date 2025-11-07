@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Scripts.Character
+namespace Scripts.Control
 {
     public class InputHandler : MonoBehaviour
     {
