@@ -1,7 +1,7 @@
 using UnityEngine;
 using Scripts.Control;
 
-namespace Scripts.Character
+namespace Scripts.Entities
 {
     public class Player : MonoBehaviour
     {
