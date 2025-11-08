@@ -1,18 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Fear : MonoBehaviour
+public class Fear : IBehaviorStrategy
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform _target;
+    private Transform _enemy;
+    private float _agroDistance;
+    private float _timeMultiplier = 5;
+
+    public Fear(Transform target, Transform enemy, float agroDistance)
     {
-        
+        _target = target;
+        _enemy = enemy;
+        _agroDistance = agroDistance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateBehavior()
     {
-        
+        float distance = (_target.position - _enemy.position).magnitude;
+
+        if (distance <= _agroDistance)
+        {
+            float scale = _enemy.transform.localScale.x;
+            scale -= Time.deltaTime * _timeMultiplier;
+            _enemy.transform.localScale = new Vector3(scale, scale, scale);
+
+            if (scale <= 0)
+                Object.Destroy(_enemy.gameObject);
+        }
     }
+
 }

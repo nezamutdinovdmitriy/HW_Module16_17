@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Stay : MonoBehaviour
+public class Stay : IBehaviorStrategy
 {
-    // Start is called before the first frame update
-    void Start()
+    public void UpdateBehavior()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -4,12 +4,12 @@ namespace Scripts.Control
 {
     public class Rotator : MonoBehaviour
     {
-        private Quaternion _targetRotation;
-
         [field: SerializeField] public float RotateSpeed { get; private set; }
 
-        public void Rotate(Vector3 direction)
+        public void Rotate(Vector3 moveVector)
         {
+            Vector3 direction = moveVector.normalized;
+
             if (direction == Vector3.zero)
                 return;
 

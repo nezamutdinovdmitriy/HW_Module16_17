@@ -131,10 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1bc96e29bde24fb5436d5d70f45ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyMover: {fileID: 7360793402447070907}
-  _enemyRotator: {fileID: 3868633412843720637}
-  _agroDistance: 5
-  _target: {fileID: 0}
+  <AgroDistance>k__BackingField: 5
+  <Mover>k__BackingField: {fileID: 7360793402447070907}
+  <Rotator>k__BackingField: {fileID: 3868633412843720637}
 --- !u!114 &7360793402447070907
 MonoBehaviour:
   m_ObjectHideFlags: 0

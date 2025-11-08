@@ -8,10 +8,11 @@ namespace Scripts.Control
 
         [field: SerializeField] public float MoveSpeed { get; private set; }
 
-        public void Move(Vector3 direction)
+        public void Move(Vector3 moveVector)
         {
+            Vector3 direction = moveVector.normalized;
             if (direction != Vector3.zero)
-                _characterController.Move(direction.normalized * MoveSpeed * Time.deltaTime);
+                _characterController.Move(direction * MoveSpeed * Time.deltaTime);
         }
     }
 }

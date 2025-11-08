@@ -5,62 +5,34 @@ namespace Scripts.Entities
 {
     public class Enemy : MonoBehaviour
     {
-        [SerializeField] private Mover _enemyMover;
-        [SerializeField] private Rotator _enemyRotator;
-        [SerializeField] private float _agroDistance;
-        [SerializeField] private Transform _target;
+        private IBehaviorStrategy _idleBehaviorStrategy;
+        private IBehaviorStrategy _agroBehaviorStrategy;
+        private Transform _agroTarget;
+        private bool _isAgro;
+
+        [field: SerializeField] public float AgroDistance { get; private set; }
+        [field: SerializeField] public Mover Mover { get; private set; }
+        [field: SerializeField] public Rotator Rotator { get; private set; }
 
         private void Update()
         {
-            FearState(_target);
-        }
+            float distance = Vector3.Distance(_agroTarget.position, transform.position);
+            _isAgro = distance <= AgroDistance;
 
-        private void ChaseState(Transform target)
-        {
-            Vector3 Direction = (target.position - transform.position).normalized;
-
-            _enemyMover.Move(Direction);
-        }
-
-        private void FearState(Transform target)
-        {
-            float distance = (target.position - transform.position).magnitude;
-
-            if (distance <= _agroDistance)
+            if (_isAgro)
             {
-                float scale = gameObject.transform.localScale.x;
-                scale -= Time.deltaTime;
-                gameObject.transform.localScale = new Vector3(scale, scale, scale);
-
-                if (scale <= 0)
-                    Destroy(gameObject);
+                _agroBehaviorStrategy.UpdateBehavior();
+            }
+            else
+            {
+                _idleBehaviorStrategy.UpdateBehavior();
             }
         }
 
-        private void EspaceState(Transform target)
-        {
-            Vector3 Direction = (target.position - transform.position).normalized;
-            float distance = (target.position - transform.position).magnitude;
+        public void Initiliaze(Transform target) => _agroTarget = target;
 
-            if (distance <= _agroDistance)
-                _enemyMover.Move(-Direction);
-        }
+        public void SetIdleBehaviorStrategy(IBehaviorStrategy behaviorStrategy) => _idleBehaviorStrategy = behaviorStrategy;
 
-        private void StayState(Transform target)
-        {
-            Vector3 Direction = (target.position - transform.position).normalized;
-
-            _enemyMover.Move(Direction);
-        }
-
-        private void PatrolState(Transform target)
-        {
-
-        }
-
-        private void RandomWalkState(Transform target)
-        {
-
-        }
+        public void SetAgroBehaviorStrategy(IBehaviorStrategy behaviorStrategy) => _agroBehaviorStrategy = behaviorStrategy;
     }
 }

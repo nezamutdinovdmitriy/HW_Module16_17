@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using Scripts.Control;
 using UnityEngine;
 
-public class Escape : MonoBehaviour
+public class Escape : IBehaviorStrategy
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform _target;
+    private Transform _enemy;
+
+    private Mover _mover;
+    private Rotator _rotator;
+
+    private float _agroDistance;
+
+    public Escape(Transform target, Transform enemy, Mover mover, Rotator rotator, float agroDistance)
     {
-        
+        _target = target;
+        _enemy = enemy;
+        _mover = mover;
+        _rotator = rotator;
+        _agroDistance = agroDistance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateBehavior()
     {
-        
+        Vector3 moveVector = _target.position - _enemy.position;
+
+        float distance = moveVector.magnitude;
+
+        if (distance <= _agroDistance)
+        {
+            _mover.Move(-moveVector);
+            _rotator.Rotate(-moveVector);
+        }
     }
 }

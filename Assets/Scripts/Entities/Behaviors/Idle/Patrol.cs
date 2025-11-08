@@ -1,18 +1,45 @@
-using System.Collections;
+using Scripts.Control;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patrol : MonoBehaviour
+public class Patrol : IBehaviorStrategy
 {
-    // Start is called before the first frame update
-    void Start()
+    private float _minDistanceToPoint = 0.5f;
+
+    private Queue<PatrolPoint> _targets;
+    private PatrolPoint _currentTarget;
+    private Transform _enemy;
+    private Mover _mover;
+    private Rotator _rotator;
+
+    public Patrol(Transform enemy, List<PatrolPoint> patrolPoints, Mover mover, Rotator rotator)
     {
-        
+        _enemy = enemy;
+        _mover = mover;
+        _rotator = rotator;
+        _targets = new Queue<PatrolPoint>();
+
+        foreach (PatrolPoint point in patrolPoints)
+            _targets.Enqueue(point);
+
+        UpdateTarget();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateBehavior()
     {
-        
+        Vector3 moveVector = _currentTarget.transform.position - _enemy.transform.position;
+        float distanceToPoint = moveVector.magnitude;
+
+        if(distanceToPoint <= _minDistanceToPoint)
+            UpdateTarget();
+
+        _mover.Move(moveVector);
+        _rotator.Rotate(moveVector);
+    }
+
+    private void UpdateTarget()
+    {
+        _currentTarget = _targets.Dequeue();
+        _targets.Enqueue(_currentTarget);
     }
 }
