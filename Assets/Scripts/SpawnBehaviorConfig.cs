@@ -15,7 +15,7 @@ public enum AgroBehaviors
     Fear
 }
 
-public class SpawnConfig : MonoBehaviour
+public class SpawnBehaviorConfig : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private IdleBehaviors _idleBehaviors;
