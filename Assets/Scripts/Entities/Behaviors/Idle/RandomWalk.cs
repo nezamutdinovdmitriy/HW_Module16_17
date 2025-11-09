@@ -26,7 +26,8 @@ namespace Scripts.Entities.Behaviors
             {
                 _currentTimer = 0;
 
-                _moveVector = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+                _moveVector = Random.insideUnitSphere;
+                _moveVector.y = 0;
             }
 
             _mover.Move(_moveVector);

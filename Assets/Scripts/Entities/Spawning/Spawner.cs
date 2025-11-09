@@ -12,31 +12,35 @@ namespace Scripts.Entities.Spawning
 
         private void Awake()
         {
-            foreach (SpawnBehaviorConfig enemyConfig in _spawnPoints)
+            foreach (SpawnBehaviorConfig spawnConfig in _spawnPoints)
             {
-                Enemy enemy = CreateEnemy(enemyConfig);
+                Enemy enemy = CreateEnemy(spawnConfig);
 
-                switch (enemyConfig.IdleBehaviors)
+                switch (spawnConfig.IdleBehaviors)
                 {
                     case IdleBehaviors.Stay:
                         enemy.SetIdleBehaviorStrategy(new Stay());
                         break;
+
                     case IdleBehaviors.Patrol:
                         enemy.SetIdleBehaviorStrategy(new Patrol(enemy.transform, _patrolPoints, enemy.Mover, enemy.Rotator));
                         break;
+
                     case IdleBehaviors.RandomWalk:
                         enemy.SetIdleBehaviorStrategy(new RandomWalk(enemy.Mover, enemy.Rotator));
                         break;
                 }
 
-                switch (enemyConfig.AgroBehaviors)
+                switch (spawnConfig.AgroBehaviors)
                 {
                     case AgroBehaviors.Chase:
                         enemy.SetAgroBehaviorStrategy(new Chase(_target, enemy.transform, enemy.Mover, enemy.Rotator, enemy.AgroDistance));
                         break;
+
                     case AgroBehaviors.Escape:
                         enemy.SetAgroBehaviorStrategy(new Escape(_target, enemy.transform, enemy.Mover, enemy.Rotator, enemy.AgroDistance));
                         break;
+
                     case AgroBehaviors.Fear:
                         enemy.SetAgroBehaviorStrategy(new Fear(_target, enemy.transform, enemy.AgroDistance));
                         break;
@@ -44,10 +48,12 @@ namespace Scripts.Entities.Spawning
             }
         }
 
-        private Enemy CreateEnemy(SpawnBehaviorConfig behaviorConfig)
+        private Enemy CreateEnemy(SpawnBehaviorConfig spawnConfig)
         {
-            Enemy enemy = Instantiate(behaviorConfig.EnemyPrefab, behaviorConfig.transform.position, Quaternion.identity);
+            Enemy enemy = Instantiate(spawnConfig.EnemyPrefab, spawnConfig.transform.position, Quaternion.identity);
+            
             enemy.Initiliaze(_target);
+            
             return enemy;
         }
     }

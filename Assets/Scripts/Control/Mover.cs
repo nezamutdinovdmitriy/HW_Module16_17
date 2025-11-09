@@ -13,6 +13,7 @@ namespace Scripts.Control
             moveVector.y = 0f;
 
             Vector3 direction = moveVector.normalized;
+            
             if (direction != Vector3.zero)
                 _characterController.Move(direction * MoveSpeed * Time.deltaTime);
         }
