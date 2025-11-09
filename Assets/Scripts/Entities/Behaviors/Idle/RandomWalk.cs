@@ -1,33 +1,36 @@
 using Scripts.Control;
 using UnityEngine;
 
-public class RandomWalk : IBehaviorStrategy
+namespace Scripts.Entities.Behaviors
 {
-    private Mover _mover;
-    private Rotator _rotator;
-
-    private Vector3 _moveVector;
-    private float _directionChangeTimer = 1f;
-    private float _currentTimer;
-
-    public RandomWalk(Mover mover, Rotator rotator)
+    public class RandomWalk : IBehaviorStrategy
     {
-        _mover = mover;
-        _rotator = rotator;
-    }
+        private Mover _mover;
+        private Rotator _rotator;
 
-    public void UpdateBehavior()
-    {
-        _currentTimer += Time.deltaTime;
+        private Vector3 _moveVector;
+        private float _directionChangeTimer = 1f;
+        private float _currentTimer;
 
-        if (_currentTimer >= _directionChangeTimer)
+        public RandomWalk(Mover mover, Rotator rotator)
         {
-            _currentTimer = 0;
-
-            _moveVector = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+            _mover = mover;
+            _rotator = rotator;
         }
 
-        _mover.Move(_moveVector);
-        _rotator.Rotate(_moveVector);
+        public void UpdateBehavior()
+        {
+            _currentTimer += Time.deltaTime;
+
+            if (_currentTimer >= _directionChangeTimer)
+            {
+                _currentTimer = 0;
+
+                _moveVector = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+            }
+
+            _mover.Move(_moveVector);
+            _rotator.Rotate(_moveVector);
+        }
     }
 }

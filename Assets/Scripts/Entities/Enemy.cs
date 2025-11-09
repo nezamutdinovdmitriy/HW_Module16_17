@@ -1,4 +1,5 @@
 using Scripts.Control;
+using Scripts.Entities.Behaviors;
 using UnityEngine;
 
 namespace Scripts.Entities

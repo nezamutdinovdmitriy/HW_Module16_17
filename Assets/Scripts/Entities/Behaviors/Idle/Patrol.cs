@@ -2,45 +2,48 @@ using Scripts.Control;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patrol : IBehaviorStrategy
+namespace Scripts.Entities.Behaviors
 {
-    private float _minDistanceToPoint = 0.5f;
-
-    private Queue<Transform> _targets;
-    private Transform _currentTarget;
-
-    private Transform _enemy;
-    private Mover _mover;
-    private Rotator _rotator;
-
-    public Patrol(Transform enemy, List<Transform> patrolPoints, Mover mover, Rotator rotator)
+    public class Patrol : IBehaviorStrategy
     {
-        _enemy = enemy;
-        _mover = mover;
-        _rotator = rotator;
-        _targets = new Queue<Transform>();
+        private float _minDistanceToPoint = 0.5f;
 
-        foreach (Transform point in patrolPoints)
-            _targets.Enqueue(point);
+        private Queue<Transform> _targets;
+        private Transform _currentTarget;
 
-        UpdateTarget();
-    }
+        private Transform _enemy;
+        private Mover _mover;
+        private Rotator _rotator;
 
-    public void UpdateBehavior()
-    {
-        Vector3 moveVector = _currentTarget.transform.position - _enemy.transform.position;
-        float distanceToPoint = moveVector.magnitude;
+        public Patrol(Transform enemy, List<Transform> patrolPoints, Mover mover, Rotator rotator)
+        {
+            _enemy = enemy;
+            _mover = mover;
+            _rotator = rotator;
+            _targets = new Queue<Transform>();
 
-        if(distanceToPoint <= _minDistanceToPoint)
+            foreach (Transform point in patrolPoints)
+                _targets.Enqueue(point);
+
             UpdateTarget();
+        }
 
-        _mover.Move(moveVector);
-        _rotator.Rotate(moveVector);
-    }
+        public void UpdateBehavior()
+        {
+            Vector3 moveVector = _currentTarget.transform.position - _enemy.transform.position;
+            float distanceToPoint = moveVector.magnitude;
 
-    private void UpdateTarget()
-    {
-        _currentTarget = _targets.Dequeue();
-        _targets.Enqueue(_currentTarget);
+            if (distanceToPoint <= _minDistanceToPoint)
+                UpdateTarget();
+
+            _mover.Move(moveVector);
+            _rotator.Rotate(moveVector);
+        }
+
+        private void UpdateTarget()
+        {
+            _currentTarget = _targets.Dequeue();
+            _targets.Enqueue(_currentTarget);
+        }
     }
 }

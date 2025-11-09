@@ -1,4 +1,7 @@
-public class Stay : IBehaviorStrategy
+namespace Scripts.Entities.Behaviors
 {
-    public void UpdateBehavior() { }
+    public class Stay : IBehaviorStrategy
+    {
+        public void UpdateBehavior() { }
+    }
 }

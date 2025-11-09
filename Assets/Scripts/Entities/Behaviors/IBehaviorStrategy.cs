@@ -1,4 +1,8 @@
-public interface IBehaviorStrategy
+namespace Scripts.Entities.Behaviors
 {
-    public void UpdateBehavior();
+    public interface IBehaviorStrategy
+    {
+        public void UpdateBehavior();
+    }
 }
+
