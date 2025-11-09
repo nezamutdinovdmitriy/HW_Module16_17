@@ -4,6 +4,7 @@ public class Fear : IBehaviorStrategy
 {
     private Transform _target;
     private Transform _enemy;
+
     private float _agroDistance;
     private float _timeMultiplier = 5;
 

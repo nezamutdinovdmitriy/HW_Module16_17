@@ -7,7 +7,9 @@ namespace Scripts.Entities
     {
         private IBehaviorStrategy _idleBehaviorStrategy;
         private IBehaviorStrategy _agroBehaviorStrategy;
+
         private Transform _agroTarget;
+        
         private bool _isAgro;
 
         [field: SerializeField] public float AgroDistance { get; private set; }
@@ -20,13 +22,9 @@ namespace Scripts.Entities
             _isAgro = distance <= AgroDistance;
 
             if (_isAgro)
-            {
                 _agroBehaviorStrategy.UpdateBehavior();
-            }
             else
-            {
                 _idleBehaviorStrategy.UpdateBehavior();
-            }
         }
 
         public void Initiliaze(Transform target) => _agroTarget = target;
