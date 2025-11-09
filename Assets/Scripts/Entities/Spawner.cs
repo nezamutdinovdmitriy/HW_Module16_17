@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        foreach (var enemyConfig in _spawnPoints)
+        foreach (SpawnBehaviorConfig enemyConfig in _spawnPoints)
         {
             Enemy enemy = CreateEnemy(enemyConfig);
 
@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
                     enemy.SetIdleBehaviorStrategy(new Patrol(enemy.transform, _patrolPoints, enemy.Mover, enemy.Rotator));
                     break;
                 case IdleBehaviors.RandomWalk:
+                    enemy.SetIdleBehaviorStrategy(new RandomWalk(enemy.Mover, enemy.Rotator));
                     break;
             }
 
@@ -43,7 +44,7 @@ public class Spawner : MonoBehaviour
 
     private Enemy CreateEnemy(SpawnBehaviorConfig behaviorConfig)
     {
-        Enemy enemy = Instantiate(behaviorConfig.EnemyPrefab, this.transform.position, Quaternion.identity);
+        Enemy enemy = Instantiate(behaviorConfig.EnemyPrefab, behaviorConfig.transform.position, Quaternion.identity);
         enemy.Initiliaze(_target);
         return enemy;
     }

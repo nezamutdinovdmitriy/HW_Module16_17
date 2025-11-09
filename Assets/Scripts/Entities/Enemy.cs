@@ -9,8 +9,6 @@ namespace Scripts.Entities
         private IBehaviorStrategy _agroBehaviorStrategy;
 
         private Transform _agroTarget;
-        
-        private bool _isAgro;
 
         [field: SerializeField] public float AgroDistance { get; private set; }
         [field: SerializeField] public Mover Mover { get; private set; }
@@ -18,13 +16,17 @@ namespace Scripts.Entities
 
         private void Update()
         {
-            float distance = Vector3.Distance(_agroTarget.position, transform.position);
-            _isAgro = distance <= AgroDistance;
-
-            if (_isAgro)
+            if (IsAgro())
                 _agroBehaviorStrategy.UpdateBehavior();
             else
                 _idleBehaviorStrategy.UpdateBehavior();
+        }
+
+        private bool IsAgro()
+        {
+            float distance = Vector3.Distance(_agroTarget.position, transform.position);
+
+            return distance <= AgroDistance;
         }
 
         public void Initiliaze(Transform target) => _agroTarget = target;

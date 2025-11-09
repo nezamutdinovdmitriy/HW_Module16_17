@@ -206,84 +206,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86291347}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &299989276
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3690370996025142423, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_Name
-      value: SpawnPoint (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: <AgroBehaviors>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: <IdleBehaviors>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3665178
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 17.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +352,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 391859044}
-  - component: {fileID: 391859045}
   m_Layer: 0
   m_Name: PatrolPoint (1)
   m_TagString: Untagged
@@ -453,18 +374,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1105231070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &391859045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391859043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945d4dbf69cac3f45acad88b7a10021d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +584,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795773947}
-  - component: {fileID: 795773948}
   m_Layer: 0
   m_Name: PatrolPoint (2)
   m_TagString: Untagged
@@ -698,18 +606,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1105231070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &795773948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795773946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945d4dbf69cac3f45acad88b7a10021d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +721,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPoints:
   - {fileID: 1418517590}
-  - {fileID: 1354798219}
   _patrolPoints:
   - {fileID: 1436539842}
   - {fileID: 391859044}
@@ -847,18 +742,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1354798219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 299989276}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf025965aef880c4391e1f2c86bb95dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1410525785
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +863,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
         type: 3}
+      propertyPath: <EnemyPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: 3924399940591622710, guid: 9d8fc0b64ba91844e884e17d63b3c35d,
+        type: 3}
+    - target: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
+        type: 3}
       propertyPath: <AgroBehaviors>k__BackingField
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841577049432548033, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
+        type: 3}
+      propertyPath: <IdleBehaviors>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
         type: 3}
@@ -991,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3665178
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856915055406275850, guid: 5e07a2d8fe9bb5d47afe5996fe1081a5,
         type: 3}
@@ -1059,7 +953,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436539842}
-  - component: {fileID: 1436539843}
   m_Layer: 0
   m_Name: PatrolPoint
   m_TagString: Untagged
@@ -1082,18 +975,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1105231070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1436539843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436539841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945d4dbf69cac3f45acad88b7a10021d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1696857573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,7 +984,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696857574}
-  - component: {fileID: 1696857575}
   m_Layer: 0
   m_Name: PatrolPoint (3)
   m_TagString: Untagged
@@ -1126,18 +1006,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1105231070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696857575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696857573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945d4dbf69cac3f45acad88b7a10021d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2016486673
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,4 +1136,3 @@ SceneRoots:
   - {fileID: 1105231070}
   - {fileID: 1311931674}
   - {fileID: 1418517589}
-  - {fileID: 299989276}
