@@ -28,7 +28,10 @@ namespace Scripts.Entities.Behaviors
                 _enemy.transform.localScale = new Vector3(scale, scale, scale);
 
                 if (scale <= 0)
-                    Object.Destroy(_enemy.gameObject);
+                {
+                    Enemy enemy = _enemy.GetComponent<Enemy>();
+                    enemy.Die();
+                }
             }
         }
     }

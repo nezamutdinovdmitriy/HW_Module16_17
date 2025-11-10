@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed1bc96e29bde24fb5436d5d70f45ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathVFXPrefab: {fileID: 5887375931229486611, guid: 200c891ecfb15e546939f642ade77e57,
+    type: 3}
   <AgroDistance>k__BackingField: 5
   <Mover>k__BackingField: {fileID: 7360793402447070907}
   <Rotator>k__BackingField: {fileID: 3868633412843720637}
